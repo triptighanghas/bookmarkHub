@@ -73,51 +73,62 @@ A modern **NestJS + TypeORM + PostgreSQL** backend API for managing bookmarks wi
 
 ## 📁 Folder Structure
 
-backend/
-├── src/
-│ ├── auth/ # Authentication module
-│ │ ├── auth.controller.ts # Handles /auth routes (register, login)
-│ │ ├── auth.service.ts # Business logic for authentication
-│ │ ├── auth.module.ts # Imports JWT, Users module
-│ │ ├── jwt.strategy.ts # JWT validation and payload extraction
-│ │ └── dto/ # DTOs for register/login validation
-│ │
-│ ├── bookmarks/ # Bookmarks module
-│ │ ├── bookmarks.controller.ts # Routes for CRUD & listing
-│ │ ├── bookmarks.service.ts # Handles DB operations & vote aggregation
-│ │ ├── bookmark.entity.ts # TypeORM entity for bookmarks
-│ │ └── bookmarks.module.ts
-│ │
-│ ├── votes/ # Voting module
-│ │ ├── votes.controller.ts # Endpoint to handle voting
-│ │ ├── votes.service.ts # Core logic for upvotes/downvotes
-│ │ ├── vote.entity.ts # TypeORM entity for votes
-│ │ └── votes.module.ts
-│ │
-│ ├── users/ # Users module
-│ │ ├── users.service.ts # Handles user DB operations
-│ │ ├── user.entity.ts # TypeORM entity for users
-│ │ └── users.module.ts
-│ │
-│ ├── common/ # Shared utilities and middlewares
-│ │ ├── filters/ # Exception filters
-│ │ │ └── all-exceptions.filter.ts
-│ │ ├── guards/ # Custom guards
-│ │ │ └── optional-jwt-auth.guard.ts
-│ │ ├── interceptors/ # (Optional) Response interceptors
-│ │ ├── decorators/ # Custom decorators if needed
-│ │ └── utils/ # Common utility functions
-│ │
-│ ├── app.module.ts # Root application module
-│ ├── main.ts # Application entry point
-│ └── config/ # (Optional) Config setup for env and DB
+```bash
+BOOKMARK-HUB/
+├── backend/                           # NestJS backend application
+│   ├── src/
+│   │   ├── auth/                      # Authentication module
+│   │   │   ├── auth.controller.ts     # Handles /auth routes (register, login)
+│   │   │   ├── auth.service.ts        # Business logic for authentication
+│   │   │   ├── auth.module.ts         # Imports JWT, Users module
+│   │   │   ├── jwt.strategy.ts        # JWT validation and payload extraction
+│   │   │   └── dto/                   # DTOs for register/login validation
+│   │   │
+│   │   ├── bookmarks/                 # Bookmarks module
+│   │   │   ├── bookmarks.controller.ts # Routes for CRUD & listing
+│   │   │   ├── bookmarks.service.ts   # Handles DB operations & vote aggregation
+│   │   │   ├── bookmark.entity.ts     # TypeORM entity for bookmarks
+│   │   │   └── bookmarks.module.ts
+│   │   │
+│   │   ├── votes/                     # Voting module
+│   │   │   ├── votes.controller.ts    # Endpoint to handle voting
+│   │   │   ├── votes.service.ts       # Core logic for upvotes/downvotes
+│   │   │   ├── vote.entity.ts         # TypeORM entity for votes
+│   │   │   └── votes.module.ts
+│   │   │
+│   │   ├── users/                     # Users module
+│   │   │   ├── users.service.ts       # Handles user DB operations
+│   │   │   ├── user.entity.ts         # TypeORM entity for users
+│   │   │   └── users.module.ts
+│   │   │
+│   │   ├── common/                    # Shared utilities and middlewares
+│   │   │   ├── filters/               # Exception filters
+│   │   │   │   └── all-exceptions.filter.ts
+│   │   │   ├── guards/                # Custom guards
+│   │   │   │   └── optional-jwt-auth.guard.ts
+│   │   │   └── utils/                 # Common utility functions
+│   │   │
+│   │   ├── app.module.ts              # Root application module
+│   │   ├── main.ts                    # Application entry point
+│   │   └── config/                    # (Optional) Config setup for env and DB
+│   │
+│   ├── .env                           # Environment configuration file
+│   ├── nest-cli.json
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── tsconfig.build.json
+│   └── README.md
 │
-├── .env # Environment configuration file
+├── database/                          # SQL schema and DB setup scripts
+│   └── initial_schema.sql             # Script to create DB and tables
+│
 ├── .gitignore
-├── package.json
-├── tsconfig.json
-└── README.md
+├── package.json                       # Root package (optional for workspace)
+├── package-lock.json
+├── jest.config.ts
+└── README.md                          # Main project documentation
 
+```
 
 ---
 
